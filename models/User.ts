@@ -1,4 +1,4 @@
-import  mongoose, { Schema, model } from  "mongoose";
+import mongoose, { Schema, model } from "mongoose";
 
 export interface UserDocument {
   _id: string;
@@ -8,16 +8,16 @@ export interface UserDocument {
   phone: string;
   image: string;
   tilt_scores: Number;
-  logs:string;
+  logs: string;
   createdAt: Date;
   updatedAt: Date;
 }
 
-const UserSchema = new Schema<UserDocument>({
+const UserSchema = new Schema < UserDocument > ({
   email: {
     type: String,
     unique: true,
-    required: [true, "Email is required"],
+    // required: [true, "Email is required"],
     match: [
       /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/,
       "Email is invalid",
@@ -25,7 +25,7 @@ const UserSchema = new Schema<UserDocument>({
   },
   password: {
     type: String,
-    required: true
+    // required: true
   },
   name: {
     type: String,
@@ -33,9 +33,11 @@ const UserSchema = new Schema<UserDocument>({
   },
   tilt_scores: {
     type: Number,
+    // required: true
   },
-  logs:{
-    type:String,
+  logs: {
+    type: String,
+    // required: true
   }
 },
 {
@@ -43,5 +45,5 @@ const UserSchema = new Schema<UserDocument>({
 }
 );
 
-const  User  =  mongoose.models?.User  ||  model<UserDocument>('User', UserSchema);
-export  default  User;
+const User = mongoose.models?.User || model < UserDocument > ('User', UserSchema);
+export default User;

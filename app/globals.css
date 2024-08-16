@@ -18,14 +18,103 @@
 
 body {
   color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
+  background: linear-gradient(to bottom,
       transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+      rgb(var(--background-end-rgb))) rgb(var(--background-start-rgb));
+  display: flex;
+  justify-content: center;
+  width: 1796px;
+  background: #191919;
 }
 
+body main {
+  width: 1440px;
+  background: #0E1015;
+  color: white;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  top: 151px;
+  height: 2292px;
+
+}
+
+body main section {
+  width: 1040px;
+  display: flex;
+  flex-wrap: wrap;
+  top: 0px;
+  padding: 12px 0 0 0;
+  position: absolute;
+}
+
+.custome-header {
+  height: 48px;
+}
+
+.custome-header img {
+  border-radius: 50%;
+  border-width: 2px;
+  border: 2px solid #1C1C1E;
+  object-fit: none;
+  margin-right: 12px;
+
+}
+
+.custome-header .flex {
+  width: 58px;
+  height: 42px;
+  margin-right: 12px;
+
+}
+
+.btn-new-entry {
+  width: 185px;
+  height: 32px;
+  border-radius: 40px;
+  background: #FF7B00;
+}
+
+.left-side {
+  width: 320px;
+  position: relative;
+  top: 12px;
+}
+
+.left-side-wh {
+  width: 320px;
+  height: 240px;
+  border: 1px;
+  border-radius: 16px;
+  background: #1C1C1E;
+  padding: 12px;
+  margin-bottom: 12px;
+}
+
+.right-side {
+  position: relative;
+  top: 12px;
+}
+
+.f-16 {
+  font-size: 16px;
+  font-weight: 600;
+    line-height: 24px;
+}
+
+.f-14 {
+  font-size: 14px;
+}
+
+.f-12 {
+  font-size: 12px;
+}
+.gap{
+margin-bottom: 12px;
+}
+.gap-r{
+  margin-right: 12px;
+  }
 @layer utilities {
   .text-balance {
     text-wrap: balance;
