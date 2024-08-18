@@ -3,7 +3,7 @@ import { FormEvent, useState } from "react";
 import { signIn } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
-import Userplay from "../components/userplay";
+import Gamevict from "../components/gamevict";
 import RankedSolo from "../components/rankedsolo"
 import RecentActivity from "../components/recentactivity";
 import TopRoles from "../components/toproles"
@@ -30,7 +30,7 @@ export default function MainPage() {
 
   return (
     <section >
-      <div className="w-full flex custome-header items-center">
+      <div className="w-full flex flex-wrap custome-header items-center">
           <Image
             src={userAvatar} 
             alt="A picture"
@@ -44,13 +44,13 @@ export default function MainPage() {
         <button className="btn-new-entry">New entry</button>
       </div>
       <div className="flex flex-wrap w-full">
-        <div className="left-side">
+        <div className="left-side mr-120">
           <RankedSolo />
           <RecentActivity />
           <TopRoles />
         </div>
         <div className="right-side">
-          <Userplay />
+          <Gamevict />
         </div>
       </div>
     </section>
