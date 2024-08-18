@@ -146,9 +146,44 @@ body main section {
 
 
 .right-side {
+
+
   position: relative;
   top: 12px;
   width: 708px;
+}
+.defeat-card{
+  background: #151517;
+  height: 1508.82px;
+  border-style: inherit;
+  width: 708px;
+  border-radius: 12px;
+  border: 1px solid;
+  border-color: #F7E436;
+}
+.defeat-details{
+  border-radius: 12px 0 0 0;
+  width: 673px;
+  border-right-width: 1px;
+    border-color: #1C1C1E;
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), linear-gradient(90.97deg, rgba(0, 214, 107, 0.2) -2.49%, rgba(21, 21, 23, 0.2) 79.1%);
+}
+.game-defeat-card{
+  display: block;
+  width: 671px;
+  height: 104.82px;
+  border-color: #1C1C1E;
+}
+.defeat-cart-down{
+  height: 1476.82px;
+  display: flex;
+  align-items: flex-end;
+  padding-bottom: 8px;
+}
+.survey-card{
+  width: 649px;
+  height: 1404px;
+  padding: 20px 104px;
 }
 .victory-card{
   height: 104.82px;
@@ -157,7 +192,11 @@ body main section {
   border-color: #1C1C1E;
 }
 .vict-details{
+  border-radius: 12px 0 0 12px;
   width: 673px;
+  border-right-width: 1px;
+    border-color: #1C1C1E;
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), linear-gradient(90.97deg, rgba(0, 214, 107, 0.2) -2.49%, rgba(21, 21, 23, 0.2) 79.1%);
 }
 .vict-action{
   width: 35px;
@@ -165,8 +204,7 @@ body main section {
 .info-card{
   width: 649px;
   height: 104.82px;
-  border-right-width: 1px;
-  border-color: #1C1C1E;
+
 }
 .avatar{
   width: 80px;
@@ -174,8 +212,8 @@ body main section {
   border-radius: 8px;
   border-width: 4px;
 }
-.avatar image {
-  border-radius: 4px;
+.avatar img {
+  border-radius: 12px;
 }
 .vict-content{
   width: 321px;
@@ -202,6 +240,9 @@ body main section {
 .tilt-result{
   width: 86px;
   height: 45px;
+}
+.cart-down{
+  padding-top: 44.82px;
 }
 .h-44{
   height: 44px;
@@ -268,6 +309,9 @@ body main section {
 }
 .mb-14{
   margin-bottom: 14px;
+}
+.mb-12{
+  margin-bottom: 12px;
 }
 .mb-8{
   margin-bottom: 8px;
