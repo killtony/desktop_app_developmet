@@ -153,7 +153,7 @@ body main section {
   width: 708px;
 }
 .defeat-card{
-  background: #151517;
+  background: #00000033;
   height: 1508.82px;
   border-style: inherit;
   width: 708px;
@@ -163,7 +163,8 @@ body main section {
 }
 .defeat-details{
   border-radius: 12px 0 0 0;
-  width: 673px;
+  border-bottom-width: 1px;
+  width: 671px;
   border-right-width: 1px;
     border-color: #1C1C1E;
     background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), linear-gradient(90.97deg, rgba(0, 214, 107, 0.2) -2.49%, rgba(21, 21, 23, 0.2) 79.1%);
@@ -171,18 +172,18 @@ body main section {
 .game-defeat-card{
   display: block;
   width: 671px;
-  height: 104.82px;
+  background: #151517;
+  border-radius: 12px 0 0 12px;
   border-color: #1C1C1E;
 }
 .defeat-cart-down{
-  height: 1476.82px;
+  height: 1464.82px;
   display: flex;
   align-items: flex-end;
-  padding-bottom: 8px;
 }
 .survey-card{
   width: 649px;
-  height: 1404px;
+  height: 1390px;
   padding: 20px 104px;
 }
 .victory-card{
@@ -202,7 +203,7 @@ body main section {
   width: 35px;
 }
 .info-card{
-  width: 649px;
+  width: 670px;
   height: 104.82px;
 
 }

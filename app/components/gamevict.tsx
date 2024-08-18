@@ -10,14 +10,15 @@ import midlaner from "../assets/images/midlaner.png"
 import uploadImg from "../assets/icons/upload-simple.svg"
 import cartDown from "../assets/icons/caret-down.svg"
 import cartUp from "../assets/icons/caret-up.svg"
+import ServeyRang from "./serveyrang"
 export default function userPlay() {
 
     return (
         <div>
             <div className="defeat-card w-full flex flex-wrap mb-12">
-                <div className="game-defeat-card w-full flex mb-12">
-                    <div className="defeat-details">
-                        <div className="info-card flex flex-wrap p-12">
+                <div className="game-defeat-card w-full flex ">
+                    <div className="defeat-details mb-12">
+                        <div className="info-card flex flex-wrap justify-center p-12">
                             <div className="avatar mr-24">
                                 <Image
                                     src={userAvatar}
@@ -72,7 +73,8 @@ export default function userPlay() {
                         </div>
                     </div>
                     <div className="survey-card">
-
+                    <h4>Post-Game Feeling Survey</h4>
+                            <ServeyRang/>
                     </div>
                 </div>
 
