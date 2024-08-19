@@ -11,8 +11,22 @@ import uploadImg from "../assets/icons/upload-simple.svg"
 import cartDown from "../assets/icons/caret-down.svg"
 import cartUp from "../assets/icons/caret-up.svg"
 import ServeyRang from "./serveyrang"
+import ServeryAnswer from "./serveyanswer";
+import ServeryEmotion from "./serveyemotion"
+import Note from "./note"
+import Comments from "./comments"
+import Quote from "./quote"
 export default function userPlay() {
-
+    const title ="testst";
+    const titlelist = [
+        "How frustrated do you feel after this game?",
+        "How much blame do you place on yourself for this loss?",
+        "How much blame do you place on your teammate for this loss?",
+        "How motivated are you to play another game right now?",
+        "How confident do you feel in your ability  to win the next game?",
+        "Did you feel in control of your gameplay during this match?",
+        "How would you rate your mental state going into this game?"
+    ]
     return (
         <div>
             <div className="defeat-card w-full flex flex-wrap mb-12">
@@ -73,8 +87,20 @@ export default function userPlay() {
                         </div>
                     </div>
                     <div className="survey-card">
-                    <h4>Post-Game Feeling Survey</h4>
-                            <ServeyRang/>
+                    <h4 className="f-16 mb-16">Post-Game Feeling Survey</h4>
+                            <ServeyRang title={titlelist[0]} />
+                            <ServeryAnswer />
+                            <ServeyRang title={titlelist[1]} />
+                            <ServeyRang title={titlelist[2]} />
+                            <ServeyRang title={titlelist[3]} />
+                            <ServeyRang title={titlelist[4]} />
+                            <ServeyRang title={titlelist[5]} />
+                            <ServeryEmotion />
+                            <Note />
+                            <ServeyRang title={titlelist[6]} />
+                            <Comments />
+                            <Quote />
+
                     </div>
                 </div>
 

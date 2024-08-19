@@ -1,0 +1,94 @@
+.h-44{
+    height: 44px;
+  }
+  .h-24{
+    height: 24px;
+  }
+  .h-14{
+    height: 14px;
+  }
+  .width-47{
+    width: 47px;
+  }
+  .w-45{
+    width: 45px;
+  }
+  .w-32{
+    width: 32px;
+  }
+  .f-24{
+    font-size: 24px;
+  }
+  .f-16 {
+    font-size: 16px;
+    font-weight: 600;
+      line-height: 24px;
+  }
+  
+  .f-14 {
+    font-size: 14px;
+  }
+  
+  .f-12 {
+    font-size: 12px;
+  }
+  .mr-24{
+    margin-right: 24px;
+  }
+  .ml-24{
+    margin-left: 24px;
+  }
+  .ml-12{
+    margin-left: 12.5px;
+  }
+  .mr-12{
+    margin-right: 12.5px;
+  }
+  .mr-120{
+    margin-right: 12px;
+  }
+  .mr-8{
+    margin-right: 8px;
+  }
+  .ml-8{
+    margin-left: 8px;
+  }
+  .mb-16{
+    margin-bottom: 16px;
+  }
+  .mb-14{
+    margin-bottom: 14px;
+  }
+  .mb-12{
+    margin-bottom: 12px;
+  }
+  .mb-8{
+    margin-bottom: 8px;
+  }
+  .mr-4{
+    margin-right: 4px;
+  }
+  .mb-4{
+    margin-bottom: 4px;
+  }
+  .mr-2{
+    margin-right: 2px;
+  }
+  .ml-2{
+    margin-left: 2px;
+  }
+  .gap{
+  margin-bottom: 12px;
+  }
+  .gap-r{
+    margin-right: 12px;
+    }
+  .gap-r8{
+    margin-right: 8px;
+  }
+  .p-12{
+    padding: 12px;
+  }
+  .p-8{
+    padding: 8px;
+  }

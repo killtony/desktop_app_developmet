@@ -2,10 +2,13 @@
   "name": "mongo-auth",
   "version": "0.1.0",
   "private": true,
+  "main": "main/main.js",
+  "author": "RBFraphael",
+  "description": "Electron + NextJS example project",
+  "type": "module",
   "scripts": {
- 
     "dev": "concurrently -n \"NEXT,ELECTRON\" -c \"yellow,blue\" --kill-others \"next dev\" \"electron .\"",
-   "build": "next build && electron-builder",
+    "build": "next build && electron-builder",
     "start": "next start",
     "lint": "next lint"
   },
