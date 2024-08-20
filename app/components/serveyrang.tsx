@@ -15,12 +15,13 @@ export default function serveyRang({title}) {
     const [state, setState] = useState({});
     const [value, setValue] = useState(0);
     const [btnpostion, setBtnpostion] = useState(0)
+    const [rang, setRang]=useState(5)
+    const rest=100;
     const handleChange = (e) => {
-        console.log(e.target.value);
         setValue(e.target.value)
-        setBtnpostion(e.target.value*4.6)
+        setBtnpostion((e.target.value-10)*4.6+2)
+        setRang(e.target.value-5)
     }
-    // const {title} =props;
     return (
         <div className="servey-item mb-12">
             <span
@@ -28,27 +29,19 @@ export default function serveyRang({title}) {
             >
                 {title}
             </span>
-            <input type="range" min={0} max="90" step={10} value={value} className="range"  onChange={handleChange} />
-            <button className="rang-btn w-full"    style={{paddingLeft:btnpostion+"px"}} >
-                <Image
-                    src={rangBtn}
-                    alt="A picture"
-                    width={24}
-                    height={24}
-                
-                />
-            </button>
-            <input type="range" min={0} max="90" step={10} value={value} className="range  click-btn" onChange={handleChange} />
-            <div className="w-full flex justify-between servey-val">
-                <span>1</span>
-                <span>2</span>
-                <span>3</span>
-                <span>4</span>
-                <span>5</span>
-                <span>6</span>
-                <span>7</span>
-                <span>8</span>
-                <span>9</span>
+            <div className="range-slider">
+                <input type="range" min={10} max="100" step={10} value={value} style={{"background":"linear-gradient(to right, #FF7B00 "+ rang + "%, #2C2C2E "+rang+"%"+rest+"%)"}} onChange={handleChange} /> 
+            </div>
+            <div className="w-full flex servey-val">
+                <span style={{marginRight:"40px"}}>1</span>
+                <span style={{marginRight:"37px"}}>2</span>
+                <span style={{marginRight:"36px"}}>3</span>
+                <span style={{marginRight:"37px"}}>4</span>
+                <span style={{marginRight:"38px"}}>5</span>
+                <span style={{marginRight:"37px"}}>6</span>
+                <span style={{marginRight:"39px"}}>7</span>
+                <span style={{marginRight:"37px"}}>8</span>
+                <span style={{marginRight:"35px"}}>9</span>
                 <span>10</span>
             </div>
 

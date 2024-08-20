@@ -50,7 +50,7 @@ export default function userPlay() {
                                         height={27.82}
                                         className="vict-img mr-12"
                                     />
-                                    <ul>
+                                    <ul className="grey">
                                         <li>
                                             <span className="dot mr-8"></span>
                                             <Image
@@ -60,8 +60,8 @@ export default function userPlay() {
                                                 height={24}
                                             />
                                         </li>
-                                        <li className="ml-8">
-                                            <span className="dot mr-8"></span>Ranked solo
+                                        <li className="ml-8 light-yellow">
+                                            <span className="dot mr-8 "></span>Ranked solo
                                         </li>
                                         <li className="ml-8">
                                             <span className="dot mr-8"></span>2 hours ago
@@ -70,17 +70,17 @@ export default function userPlay() {
                                 </div>
                                 <div className="flex flex-wrap">
                                     <div className="tilt-result flex flex-wrap mr-24">
-                                        <span className="w-full">Tilt score</span>
-                                        <span className="w-full">12/100</span>
+                                        <span className="w-full f-12 grey">Tilt score</span>
+                                        <span className="w-full f-18 orange">12/100</span>
 
                                     </div>
                                     <div className="tilt-result flex flex-wrap mr-24 ml-24">
-                                        <span className="w-full">Game</span>
-                                        <span className="w-full">21:22</span>
+                                        <span className="w-full f-12 grey">Game</span>
+                                        <span className="w-full f-18">21:22</span>
                                     </div>
                                     <div className="tilt-result flex flex-wrap">
-                                        <span className="w-full">performance</span>
-                                        <span className="w-full">Great</span>
+                                        <span className="w-full f-12 grey">performance</span>
+                                        <span className="w-full f-18 orange">Great</span>
                                     </div>
                                 </div>
                             </div>
