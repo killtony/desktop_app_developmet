@@ -17,7 +17,9 @@ import Note from "./note"
 import Comments from "./comments"
 import Quote from "./quote"
 export default function userPlay() {
-    const title ="testst";
+    // const title ="testst";
+    const [gameresult, setGameresult] = useState(0);
+    const [resultcast, setResultcast] = useState("Great")
     const titlelist = [
         "How frustrated do you feel after this game?",
         "How much blame do you place on yourself for this loss?",
@@ -27,6 +29,36 @@ export default function userPlay() {
         "Did you feel in control of your gameplay during this match?",
         "How would you rate your mental state going into this game?"
     ]
+    const [servey, setServey] = useState({
+        feeling: 1,
+        outcome: 15,
+        blameself: 1,
+        blameteam: 1,
+        motivate: 1,
+        confident: 1,
+        gamefell: 1,
+        emotion: 0,
+        mental: 1,
+    })
+    const test = () => {
+        console.log(servey);
+
+        setGameresult(Math.min(100, Math.max(0,
+            (servey.feeling * 3.5) + (servey.blameteam * 3) + (servey.blameself * 3) - (servey.motivate * 0.8) - (servey.confident * 0.5) - (servey.gamefell * 0.5) + servey.emotion + servey.outcome
+        )))
+        if(gameresult >= 81){
+            setResultcast("Extremely Tilted")
+            } 
+        else if(gameresult >= 61 && gameresult <= 81){
+            setResultcast("Poor")
+        }else if(gameresult <= 61 && gameresult >= 41){
+            setResultcast("Average")
+        }else if(gameresult <= 41 && gameresult >= 21){
+            setResultcast("Good")
+        }else{
+            setResultcast("Outstanding")
+        } 
+    }
     return (
         <div>
             <div className="defeat-card w-full flex flex-wrap mb-12">
@@ -71,7 +103,7 @@ export default function userPlay() {
                                 <div className="flex flex-wrap">
                                     <div className="tilt-result flex flex-wrap mr-24">
                                         <span className="w-full f-12 grey">Tilt score</span>
-                                        <span className="w-full f-18 orange">12/100</span>
+                                        <span className="w-full f-18 orange">{ gameresult }/100</span>
 
                                     </div>
                                     <div className="tilt-result flex flex-wrap mr-24 ml-24">
@@ -80,26 +112,27 @@ export default function userPlay() {
                                     </div>
                                     <div className="tilt-result flex flex-wrap">
                                         <span className="w-full f-12 grey">performance</span>
-                                        <span className="w-full f-18 orange">Great</span>
+                                        <span className="w-full f-18 orange">{resultcast}</span>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div className="survey-card">
-                    <h4 className="f-16 mb-16">Post-Game Feeling Survey</h4>
-                            <ServeyRang title={titlelist[0]} />
-                            <ServeryAnswer />
-                            <ServeyRang title={titlelist[1]} />
-                            <ServeyRang title={titlelist[2]} />
-                            <ServeyRang title={titlelist[3]} />
-                            <ServeyRang title={titlelist[4]} />
-                            <ServeyRang title={titlelist[5]} />
-                            <ServeryEmotion />
-                            <Note />
-                            <ServeyRang title={titlelist[6]} />
-                            <Comments />
-                            <Quote />
+                        <h4 className="f-16 mb-16">Post-Game Feeling Survey</h4>
+                        <button onClick={test}>test</button>
+                        <ServeyRang title={titlelist[0]} slug="feeling" servey={servey} setServey={setServey} />
+                        <ServeryAnswer slug="emotion" servey={servey} setServey={setServey} />
+                        <ServeyRang title={titlelist[1]} slug="blameself" servey={servey} setServey={setServey} />
+                        <ServeyRang title={titlelist[2]} slug="blameteam" servey={servey} setServey={setServey} />
+                        <ServeyRang title={titlelist[3]} slug="motivate" servey={servey} setServey={setServey} />
+                        <ServeyRang title={titlelist[4]} slug="confident" servey={servey} setServey={setServey} />
+                        <ServeyRang title={titlelist[5]} slug="gamefell" servey={servey} setServey={setServey} />
+                        <ServeryEmotion slug="emotion" servey={servey} setServey={setServey} />
+                        <Note />
+                        <ServeyRang title={titlelist[6]} slug="mental" servey={servey} setServey={setServey} />
+                        <Comments />
+                        <Quote />
 
                     </div>
                 </div>

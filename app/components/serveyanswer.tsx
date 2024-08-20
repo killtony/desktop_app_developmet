@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image"
 import rangBtn from "../assets/icons/rang-btn.svg"
-export default function serveryAnswer() {
+export default function serveryAnswer({ slug, servey, setServey}) {
     const [checkval, setCheckval] = useState(1);
     // const [value, setValue] = useState(0);
     // const [btnpostion, setBtnpostion] = useState(0)
@@ -13,8 +13,10 @@ export default function serveryAnswer() {
     const handleChange = (e) => {
         if(checkval==1){
             setCheckval(0)
+            setServey({...servey, [slug]: 0})
         }else{
             setCheckval(1)
+            setServey({...servey, [slug]: 15})
         }
     }
     return (

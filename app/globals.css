@@ -23,7 +23,7 @@ body {
       rgb(var(--background-end-rgb))) rgb(var(--background-start-rgb));
   display: flex;
   justify-content: center;
-  width: 1796px;
+  /* width: 1796px; */
   background: #191919;
   padding-bottom: 150px;
   padding-top: 150px;
