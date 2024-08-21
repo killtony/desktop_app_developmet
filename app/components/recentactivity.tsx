@@ -29,14 +29,12 @@ export default function recentActivity() {
     2, 1, 2, 3, 6, 1, 4,
     3, 2, 1, 2, 3, 4, 5,
   ]
-  var arr = Array();
-  tabledata.forEach((item, key, err) => {
-    if (key % 7 == 0) {
-      arr.push(item)
+  const arr = Array();
+  tabledata.forEach((data, key_value, err) => {
+    if (key_value % 7 == 0) {
+      arr.push(data)
     }
   })
-  // setSun(arr)
-  console.log(arr);
 
 
   return (
@@ -56,57 +54,60 @@ export default function recentActivity() {
         <div className="w-full flex f-12 h-14 items-center">
           <span className="week">Sun</span>
           <div className="flex">
-            {arr.map((item) => (
-              <div key={item} className="result-box mr-2 .back-heavy-grey {
-"></div>
+            {/* {arr.map((item) => (
+              <div key={item} className="result-box mr-2 back-heavy-grey">{item}</div>
+            ))} */}
+          
+            {arr.map((item, index) => (
+              <div key={index} className="result-box mr-2 back-heavy-grey">{index}</div>
             ))}
           </div>
         </div>
         <div className="w-full flex f-12 h-14 items-center">
           <span className="week">Mon</span>
          <div className="flex">
-            {arr.map((item) => (
-              <div key={item} className="result-box mr-2 back-heavy-grey"></div>
+            {arr.map((item, index) => (
+              <div key={index} className="result-box mr-2 back-heavy-grey">{index}</div>
             ))}
           </div>
         </div>
         <div className="w-full flex f-12 h-14 items-center">
           <span className="week">Tue</span>
          <div className="flex">
-            {arr.map((item) => (
-              <div key={item} className="result-box mr-2 back-heavy-grey"></div>
+            {arr.map((item, index) => (
+              <div key={index} className="result-box mr-2 back-heavy-grey">{index}</div>
             ))}
           </div>
         </div>
         <div className="w-full flex f-12 h-14 items-center">
           <span className="week">Wed</span>
          <div className="flex">
-            {arr.map((item) => (
-              <div key={item} className="result-box mr-2 back-heavy-grey"></div>
+            {arr.map((item, index) => (
+              <div key={index} className="result-box mr-2 back-heavy-grey">{index}</div>
             ))}
           </div>
         </div>
         <div className="w-full flex f-12 h-14 items-center">
           <span className="week">Thu</span>
          <div className="flex">
-            {arr.map((item) => (
-              <div key={item} className="result-box mr-2 back-heavy-grey"></div>
+            {arr.map((item, index) => (
+              <div key={index} className="result-box mr-2 back-heavy-grey">{index}</div>
             ))}
           </div>
         </div>
         <div className="w-full flex f-12 h-14 items-center">
           <span className="week">Fri</span>
          <div className="flex">
-            {arr.map((item) => (
-              <div key={item} className="result-box mr-2 back-heavy-grey"></div>
+            {arr.map((item, index) => (
+              <div key={index} className="result-box mr-2 back-heavy-grey">{index}</div>
             ))}
           </div>
         </div>
         <div className="w-full flex f-12 h-14 items-center">
           <span className="week">Sat</span>
          <div className="flex">
-            {arr.map((item) => (
-              <div key={item} className="result-box mr-2 back-heavy-grey"></div>
+            {arr.map((item, index) => (
+              <div key={index} className="result-box mr-2 back-heavy-grey">{index}</div>
             ))}
           </div>
         </div>

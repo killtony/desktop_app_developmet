@@ -1,8 +1,7 @@
 "use client";
-import { FormEvent, useState } from "react";
-import { signIn } from "next-auth/react";
-import { useRouter } from "next/navigation";
-import Link from "next/link";
+import { useState } from "react";
+import {get_user} from "@/lib/auth"
+import { useSession } from "next-auth/react";
 import Image from "next/image"
 import userAvatar from "../assets/images/userAvatar.png";
 import victoryImg from "../assets/icons/Group.svg";
@@ -17,8 +16,10 @@ import Note from "./note"
 import Comments from "./comments"
 import Quote from "./quote"
 export default function userPlay() {
-    // const title ="testst";
+    const { data: session } = useSession()
+
     const [gameresult, setGameresult] = useState(0);
+
     const [resultcast, setResultcast] = useState("Great")
     const titlelist = [
         "How frustrated do you feel after this game?",
@@ -40,25 +41,28 @@ export default function userPlay() {
         emotion: 0,
         mental: 1,
     })
-    const test = () => {
-        console.log(servey);
+  
 
+
+    const test = async () => {
+     
         setGameresult(Math.min(100, Math.max(0,
             (servey.feeling * 3.5) + (servey.blameteam * 3) + (servey.blameself * 3) - (servey.motivate * 0.8) - (servey.confident * 0.5) - (servey.gamefell * 0.5) + servey.emotion + servey.outcome
         )))
-        if(gameresult >= 81){
+        if (gameresult >= 81) {
             setResultcast("Extremely")
-            } 
-        else if(gameresult >= 61 && gameresult <= 81){
+        }
+        else if (gameresult >= 61 && gameresult <= 81) {
             setResultcast("Poor")
-        }else if(gameresult <= 61 && gameresult >= 41){
+        } else if (gameresult <= 61 && gameresult >= 41) {
             setResultcast("Average")
-        }else if(gameresult <= 41 && gameresult >= 21){
+        } else if (gameresult <= 41 && gameresult >= 21) {
             setResultcast("Good")
-        }else{
+        } else {
             setResultcast("Outstanding")
-        } 
+        }
     }
+
     return (
         <div>
             <div className="defeat-card w-full flex flex-wrap mb-12">
@@ -103,7 +107,7 @@ export default function userPlay() {
                                 <div className="flex flex-wrap">
                                     <div className="tilt-result flex flex-wrap mr-24">
                                         <span className="w-full f-12 grey">Tilt score</span>
-                                        <span className="w-full f-18 orange">{ gameresult }/100</span>
+                                        <span className="w-full f-18 orange">{gameresult}/100</span>
 
                                     </div>
                                     <div className="tilt-result flex flex-wrap mr-24 ml-24">
