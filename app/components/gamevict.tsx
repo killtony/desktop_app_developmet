@@ -47,7 +47,7 @@ export default function userPlay() {
             (servey.feeling * 3.5) + (servey.blameteam * 3) + (servey.blameself * 3) - (servey.motivate * 0.8) - (servey.confident * 0.5) - (servey.gamefell * 0.5) + servey.emotion + servey.outcome
         )))
         if(gameresult >= 81){
-            setResultcast("Extremely Tilted")
+            setResultcast("Extremely")
             } 
         else if(gameresult >= 61 && gameresult <= 81){
             setResultcast("Poor")

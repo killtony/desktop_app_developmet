@@ -26,7 +26,8 @@ body {
   /* width: 1796px; */
   background: #191919;
   padding-bottom: 150px;
-  padding-top: 150px;
+  padding-top: 25px;
+  /* padding-top: 150px; */
 }
 
 body main {
@@ -150,10 +151,26 @@ body main section {
   width: 66px;
 }
 
+.month-img {
+  filter: grayscale(100%);
+}
+.month11{
+  width: 8px;
+  margin-right: 2px;
+  background-color: #1B7F48;
+}
+.month12{
+  width: 8px;
+    margin-left: 2px;
+    background-color: #FF7B00;
+}
 .chart-88 {
   height: 88px;
 }
 
+.activity {
+  color: #AEAEB2;
+}
 
 .right-side {
   position: relative;
@@ -423,15 +440,63 @@ input[type="range"]::-moz-range-thumb {
   width: 333px;
 }
 
+.back-orange {
+  background-color: #FF7B00;
+}
+
+.back-light-orange {
+  background-color: #F5973F;
+}
+
+.back-green {
+  background-color: #38A954;
+}
+
+.back-heavy-green {
+  background-color: #1B7F48;
+}
+
+.back-heavy-grey {
+  background-color: #3A3A3C;
+}
+
+.back-light-grey {
+  background-color: #717176;
+}
+
+.back-white {
+  background-color: #FFFFFF;
+}
+
+.back-light-white {
+  background-color: #AEAEB2;
+}
+
+.white {
+  color: #FFFFFF;
+}
+
 .orange {
   color: #FF7B00;
 }
+
 .grey {
   color: #717176;
 }
-.light-yellow{
+
+.light-yellow {
   color: #C8AA6E;
 }
+
+.week {
+  margin-right: 16px;
+  width: 28px;
+}
+
+.h-88 {
+  height: 88px;
+}
+
 .h-44 {
   height: 44px;
 }
@@ -452,6 +517,10 @@ input[type="range"]::-moz-range-thumb {
   width: 47px;
 }
 
+.w-320 {
+  width: 320px;
+}
+
 .w-45 {
   width: 45px;
 }
@@ -463,7 +532,6 @@ input[type="range"]::-moz-range-thumb {
 .result-box {
   width: 12px;
   height: 12px;
-  background: rebeccapurple;
 }
 
 .f-24 {
