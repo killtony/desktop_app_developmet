@@ -288,6 +288,9 @@ body main section {
 .cart-down {
   padding-top: 44.82px;
 }
+.background-color-white input{
+  background-color: white;
+}
 
 input[type="range"] {
   -webkit-appearance: none;

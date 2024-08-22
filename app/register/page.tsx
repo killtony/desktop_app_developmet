@@ -30,7 +30,7 @@ export default function Register() {
         ref={ref}
         action={handleSubmit}
         className="p-6 w-full max-w-[400px] flex flex-col justify-between items-center gap-2 
-            border border-solid border-black bg-white rounded text-black"
+            border border-solid border-black bg-white rounded text-black background-color-white"
       >
         {error && <div className="">{error}</div>}
         <h1 className="mb-5 w-full text-2xl font-bold">Register</h1>

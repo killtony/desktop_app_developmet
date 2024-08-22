@@ -26,7 +26,7 @@ export default function Login() {
     <section className="w-full h-screen flex items-center justify-center">
       <form
         className="p-6 w-full max-w-[400px] flex flex-col justify-between items-center gap-2 
-        border border-solid border-black bg-white rounded text-black"
+        border border-solid border-black bg-white rounded text-black background-color-white"
         action={handleSubmit}
       >
         {error && <div className="text-black">{error}</div>}
