@@ -14,10 +14,10 @@ export default function Login() {
       password: formData.get("password"),
       redirect: false,
     });
-    if (res?.error) {
-      setError(res.error as string);
+    if (JSON.parse(JSON.stringify(res))?.error) {
+      setError(JSON.parse(JSON.stringify(res))?.error as string);
     }
-    if (res?.ok) {
+    if (JSON.parse(JSON.stringify(res))?.ok) {
       return router.push("/");
     }
   };
