@@ -2,6 +2,7 @@
 import { connectDB } from "@/lib/mongodb";
 import User from "@/models/User";
 import bcrypt from "bcryptjs";
+import { json } from "stream/consumers";
 
 export const register = async (values: any) => {
   const { email, password, name } = values;
@@ -28,6 +29,17 @@ export const register = async (values: any) => {
     
     await user.save();
 
+  } catch (e) {
+    console.log(e);
+  }
+}
+export const get_user = async (values: any) => {
+  const { email} = values;
+
+  try {
+    await connectDB();
+    const userFound = await User.findOne({ email });
+    return JSON.parse(JSON.stringify(userFound))
   } catch (e) {
     console.log(e);
   }

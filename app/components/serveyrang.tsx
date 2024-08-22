@@ -11,7 +11,7 @@ import uploadImg from "../assets/icons/upload-simple.svg"
 import cartDown from "../assets/icons/caret-down.svg"
 import cartUp from "../assets/icons/caret-up.svg"
 import rangBtn from "../assets/icons/rang-btn.svg"
-export default function serveyRang({title, slug, servey, setServey}) {
+export default function ServeyRang({title, slug, servey, setServey}:any) {
 // export default function serveyRang({ title, slug, servey}) {
     const [state, setState] = useState({});
     const [value, setValue] = useState(0);
@@ -19,9 +19,7 @@ export default function serveyRang({title, slug, servey, setServey}) {
     const [val, setVal]= useState(servey)
     const [rang, setRang] = useState(5)
     const rest = 100;
-    const handleChange = (e) => {
-        console.log(e.target.value);
-        
+    const handleChange = (e:any) => {
         setServey({...servey, [slug]: (e.target.value-10)/10+1})
         setValue(e.target.value)
         setBtnpostion((e.target.value - 10) * 4.6 + 2)

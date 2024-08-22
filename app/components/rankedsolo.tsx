@@ -9,7 +9,7 @@ import gear from "../assets/icons/gear.svg";
 import userAvatar from "../assets/images/logo.png";
 import rankedback from "../assets/images/rankedback.png";
 import Image from "next/image"
-export default function rankedSolo() {
+export default function RankedSolo() {
     return (
         <div className="w-full left-side-wh">
             <div className="left-w-el">

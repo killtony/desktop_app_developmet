@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image"
 import rangBtn from "../assets/icons/rang-btn.svg"
-export default function note() {
+export default function Note() {
     const [checkval, setCheckval] = useState(1);
     // const [value, setValue] = useState(0);
     // const [btnpostion, setBtnpostion] = useState(0)
@@ -15,16 +15,15 @@ export default function note() {
         padding: "10px",
         fontFamily: "Arial"
       };
-    const handleChange = () => {
-        console.log(e.target.value);
-        if(checkval==1){
-            setCheckval(0)
-        }else{
-            setCheckval(1)
-        }
+    // const handleChange = () => {
+    //     if(checkval==1){
+    //         setCheckval(0)
+    //     }else{
+    //         setCheckval(1)
+    //     }
        
-        // setBtnpostion(e.target.value*4.6)
-    }
+    //     // setBtnpostion(e.target.value*4.6)
+    // }
     // const {title} =props;
     return (
         <div className="servey-item2 mb-16">

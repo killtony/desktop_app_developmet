@@ -7,7 +7,7 @@ import Userplay from "./gamevict";
 // import userAvatar from "../../public/userAvatar.png";
 import userAvatar from "../assets/images/userAvatar.png";
 import Image from "next/image"
-export default function recentActivity() {
+export default function RecentActivity() {
 
   const tabledata = [
     1, 2, 3, 4, 5, 6, 7,
@@ -59,7 +59,7 @@ export default function recentActivity() {
             ))} */}
           
             {arr.map((item, index) => (
-              <div key={index} className="result-box mr-2 back-heavy-grey">{index}</div>
+              <div key={index} className="result-box mr-2 back-heavy-grey"></div>
             ))}
           </div>
         </div>
@@ -67,7 +67,7 @@ export default function recentActivity() {
           <span className="week">Mon</span>
          <div className="flex">
             {arr.map((item, index) => (
-              <div key={index} className="result-box mr-2 back-heavy-grey">{index}</div>
+              <div key={index} className="result-box mr-2 back-heavy-grey"></div>
             ))}
           </div>
         </div>
@@ -75,7 +75,7 @@ export default function recentActivity() {
           <span className="week">Tue</span>
          <div className="flex">
             {arr.map((item, index) => (
-              <div key={index} className="result-box mr-2 back-heavy-grey">{index}</div>
+              <div key={index} className="result-box mr-2 back-heavy-grey"></div>
             ))}
           </div>
         </div>
@@ -83,7 +83,7 @@ export default function recentActivity() {
           <span className="week">Wed</span>
          <div className="flex">
             {arr.map((item, index) => (
-              <div key={index} className="result-box mr-2 back-heavy-grey">{index}</div>
+              <div key={index} className="result-box mr-2 back-heavy-grey"></div>
             ))}
           </div>
         </div>
@@ -91,7 +91,7 @@ export default function recentActivity() {
           <span className="week">Thu</span>
          <div className="flex">
             {arr.map((item, index) => (
-              <div key={index} className="result-box mr-2 back-heavy-grey">{index}</div>
+              <div key={index} className="result-box mr-2 back-heavy-grey"></div>
             ))}
           </div>
         </div>
@@ -99,7 +99,7 @@ export default function recentActivity() {
           <span className="week">Fri</span>
          <div className="flex">
             {arr.map((item, index) => (
-              <div key={index} className="result-box mr-2 back-heavy-grey">{index}</div>
+              <div key={index} className="result-box mr-2 back-heavy-grey"></div>
             ))}
           </div>
         </div>
@@ -107,7 +107,7 @@ export default function recentActivity() {
           <span className="week">Sat</span>
          <div className="flex">
             {arr.map((item, index) => (
-              <div key={index} className="result-box mr-2 back-heavy-grey">{index}</div>
+              <div key={index} className="result-box mr-2 back-heavy-grey"></div>
             ))}
           </div>
         </div>

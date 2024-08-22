@@ -11,17 +11,17 @@ import month4 from "../assets/images/month4.png"
 import month5 from "../assets/images/month5.png"
 import Image from "next/image"
 
-export default function topRoles() {
-  const [month11, setMonth11]=useState(30)
-  const [month12, setMonth12]=useState(40)
-  const [month21, setMonth21]=useState(50)
-  const [month22, setMonth22]=useState(55)
-  const [month31, setMonth31]=useState(76)
-  const [month32, setMonth32]=useState(44)
-  const [month41, setMonth41]=useState(66)
-  const [month42, setMonth42]=useState(88)
-  const [month51, setMonth51]=useState(66)
-  const [month52, setMonth52]=useState(88)
+export default function TopRoles() {
+  const [month11, setMonth11] = useState(30)
+  const [month12, setMonth12] = useState(40)
+  const [month21, setMonth21] = useState(50)
+  const [month22, setMonth22] = useState(55)
+  const [month31, setMonth31] = useState(76)
+  const [month32, setMonth32] = useState(44)
+  const [month41, setMonth41] = useState(66)
+  const [month42, setMonth42] = useState(88)
+  const [month51, setMonth51] = useState(66)
+  const [month52, setMonth52] = useState(88)
 
   return (
     <div className="w-full left-side-wh">
@@ -32,32 +32,32 @@ export default function topRoles() {
       <div className="w-full chart-88 mb-16 flex flex-wrap justify-around">
         <div className="flex flex-wrap w-45 h-88">
           <div className="w-320 flex flex-wrap justify-center items-end">
-            <div className=" month11" style={{height:month11}}></div>
-            <div className="month12" style={{height:month12}}></div>
+            <div className=" month11" style={{ height: month11 }}></div>
+            <div className="month12" style={{ height: month12 }}></div>
           </div>
         </div>
         <div className="flex flex-wrap w-45 h-88">
-        <div className="w-320 flex flex-wrap justify-center items-end">
-            <div className=" month11" style={{height:month21}}></div>
-            <div className="month12" style={{height:month22}}></div>
+          <div className="w-320 flex flex-wrap justify-center items-end">
+            <div className=" month11" style={{ height: month21 }}></div>
+            <div className="month12" style={{ height: month22 }}></div>
           </div>
         </div>
         <div className="flex flex-wrap w-45 h-88">
-        <div className="w-320 flex flex-wrap justify-center items-end">
-            <div className=" month11" style={{height:month31}}></div>
-            <div className="month12" style={{height:month32}}></div>
+          <div className="w-320 flex flex-wrap justify-center items-end">
+            <div className=" month11" style={{ height: month31 }}></div>
+            <div className="month12" style={{ height: month32 }}></div>
           </div>
         </div>
         <div className="flex flex-wrap w-45 h-88">
-        <div className="w-320 flex flex-wrap justify-center items-end">
-            <div className=" month11" style={{height:month41}}></div>
-            <div className="month12" style={{height:month42}}></div>
+          <div className="w-320 flex flex-wrap justify-center items-end">
+            <div className=" month11" style={{ height: month41 }}></div>
+            <div className="month12" style={{ height: month42 }}></div>
           </div>
         </div>
         <div className="flex flex-wrap w-45 h-88">
-        <div className="w-320 flex flex-wrap justify-center items-end">
-            <div className=" month11" style={{height:month51}}></div>
-            <div className="month12" style={{height:month52}}></div>
+          <div className="w-320 flex flex-wrap justify-center items-end">
+            <div className=" month11" style={{ height: month51 }}></div>
+            <div className="month12" style={{ height: month52 }}></div>
           </div>
         </div>
       </div>

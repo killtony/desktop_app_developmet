@@ -5,9 +5,9 @@ import { useRouter } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image"
 import rangBtn from "../assets/icons/rang-btn.svg"
-export default function serveyEmotion({ slug, servey, setServey }) {
+export default function ServeyEmotion({ slug, servey, setServey }:any) {
 
-    const handleChange = (val) => {
+    const handleChange = (val:any) => {
         switch (val) {
             case 1:
                 setServey({ ...servey, [slug]: 25 })

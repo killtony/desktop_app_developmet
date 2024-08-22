@@ -7,7 +7,7 @@ import Image from "next/image"
 import rangBtn from "../assets/icons/rang-btn.svg"
 import userAvatar from "../assets/images/userAvatar.png"
 import imagestyle from "../assets/icons/Coach.svg"
-export default function quote() {
+export default function Quote() {
     const [checkval, setCheckval] = useState(1);
     // const [value, setValue] = useState(0);
     // const [btnpostion, setBtnpostion] = useState(0)
@@ -17,16 +17,16 @@ export default function quote() {
         padding: "10px",
         fontFamily: "Arial"
     };
-    const handleChange = () => {
-        console.log(e.target.value);
-        if (checkval == 1) {
-            setCheckval(0)
-        } else {
-            setCheckval(1)
-        }
+    // const handleChange = () => {
+    //     console.log(e.target.value);
+    //     if (checkval == 1) {
+    //         setCheckval(0)
+    //     } else {
+    //         setCheckval(1)
+    //     }
 
-        // setBtnpostion(e.target.value*4.6)
-    }
+    //     // setBtnpostion(e.target.value*4.6)
+    // }
     // const {title} =props;
     return (
 

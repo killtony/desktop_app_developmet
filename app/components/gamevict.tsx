@@ -1,6 +1,5 @@
 "use client";
-import { useState } from "react";
-import {get_user} from "@/lib/auth"
+import { useState, useEffect } from "react";
 import { useSession } from "next-auth/react";
 import Image from "next/image"
 import userAvatar from "../assets/images/userAvatar.png";
@@ -15,7 +14,9 @@ import ServeryEmotion from "./serveyemotion"
 import Note from "./note"
 import Comments from "./comments"
 import Quote from "./quote"
-export default function userPlay() {
+import { get_user } from "@/actions/user";
+import {game_result_r} from '@/actions/games'
+export default function UserPlay() {
     const { data: session } = useSession()
 
     const [gameresult, setGameresult] = useState(0);
@@ -41,14 +42,13 @@ export default function userPlay() {
         emotion: 0,
         mental: 1,
     })
-  
 
+    const test =  () => {
 
-    const test = async () => {
-     
         setGameresult(Math.min(100, Math.max(0,
             (servey.feeling * 3.5) + (servey.blameteam * 3) + (servey.blameself * 3) - (servey.motivate * 0.8) - (servey.confident * 0.5) - (servey.gamefell * 0.5) + servey.emotion + servey.outcome
         )))
+        
         if (gameresult >= 81) {
             setResultcast("Extremely")
         }
@@ -57,12 +57,26 @@ export default function userPlay() {
         } else if (gameresult <= 61 && gameresult >= 41) {
             setResultcast("Average")
         } else if (gameresult <= 41 && gameresult >= 21) {
-            setResultcast("Good")
+             setResultcast("Good")
         } else {
-            setResultcast("Outstanding")
+           setResultcast("Outstanding")
         }
     }
+    const game_r = async ()=>{
+        const r = await get_user({
+            email: session?.user?.email,
+          });
+        await game_result_r({
 
+            user_id:r._id, 
+            tilt_score:String(gameresult),
+            game_time:String(10),
+            game_performance:resultcast
+        })
+    }
+    // useEffect(()=>{
+    //     game_r()
+    // }, [resultcast])
     return (
         <div>
             <div className="defeat-card w-full flex flex-wrap mb-12">
@@ -124,7 +138,8 @@ export default function userPlay() {
                     </div>
                     <div className="survey-card">
                         <h4 className="f-16 mb-16">Post-Game Feeling Survey</h4>
-                        <button onClick={test}>test</button>
+                        <button className="btn" onClick={test}>Result test</button>
+                        <button className="btn" onClick={game_r}>Game save</button>
                         <ServeyRang title={titlelist[0]} slug="feeling" servey={servey} setServey={setServey} />
                         <ServeryAnswer slug="emotion" servey={servey} setServey={setServey} />
                         <ServeyRang title={titlelist[1]} slug="blameself" servey={servey} setServey={setServey} />

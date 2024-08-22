@@ -6,40 +6,30 @@ export interface GamesDocument {
  tilt_score:String;
  game_time:String;
  game_performance:String;
-
 }
 
-const UserSchema = new Schema < GamesDocument > ({
-  email: {
+const GamesSchema = new Schema < GamesDocument > ({
+  user_id: {
     type: String,
-    unique: true,
-    // required: [true, "Email is required"],
-    match: [
-      /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/,
-      "Email is invalid",
-    ],
+    required: true
   },
-  password: {
+  tilt_score: {
     type: String,
-    // required: true
+    required: true
   },
-  name: {
+  game_time: {
     type: String,
-    required: [true, "Name is required"]
+    required: true
   },
-  tilt_scores: {
-    type: Number,
-    // required: true
-  },
-  logs: {
+  game_performance: {
     type: String,
-    // required: true
-  }
+    required: true
+  },
 },
 {
   timestamps: true,
 }
 );
 
-const User = mongoose.models?.User || model < GamesDocument > ('User', UserSchema);
-export default User;
+const Games = mongoose.models?.Games || model < GamesDocument > ('Games', GamesSchema);
+export default Games;
