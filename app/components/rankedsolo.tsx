@@ -1,15 +1,70 @@
 "use client";
-import { FormEvent, useState } from "react";
-import { signIn } from "next-auth/react";
-import { useRouter } from "next/navigation";
-import Link from "next/link";
-import Userplay from "./gamevict";
+import { useEffect, useState } from "react";
 import arrowClockwise from "../assets/icons/arrow-clockwise.svg";
 import gear from "../assets/icons/gear.svg";
 import userAvatar from "../assets/images/logo.png";
-import rankedback from "../assets/images/rankedback.png";
 import Image from "next/image"
 export default function RankedSolo() {
+    const [second, setSecond] = useState('00');
+    const [minute, setMinute] = useState('05');
+    const [isActive, setIsActive] = useState(false);
+    const [counter, setCounter] = useState(300);
+    const [timepriod, setTimepriod]=useState(300)
+    const avarge_tilt = 10
+    useEffect(() => {
+        let intervalId: NodeJS.Timeout;;
+
+        if (isActive) {
+            intervalId = setInterval(() => {
+                const secondCounter = counter % 60;
+                const minuteCounter = Math.floor(counter / 60);
+
+                const computedSecond = String(secondCounter).padStart(2, '0');
+                const computedMinute = String(minuteCounter).padStart(2, '0');
+
+                setSecond(computedSecond);
+                setMinute(computedMinute);
+
+                setCounter(counter => counter - 1);
+            }, 1000);
+        }
+
+        return () => clearInterval(intervalId);
+    }, [isActive, counter]);
+    const startgame =()=>{
+        setIsActive(!isActive)
+    }
+    const stopTimer = () => {
+        setIsActive(false);
+        setSecond('00');
+        if (timepriod==300){
+            setCounter(300);
+            setMinute("05")
+        }else if(timepriod==600){
+            setCounter(600);
+            setMinute("10");
+        }else{
+            setCounter(900);
+            setMinute("15");
+        }
+    };
+    const setting =()=>{
+        setIsActive(false);
+        setSecond('00');
+        if (timepriod<600){
+            setTimepriod(600)
+            setMinute("10");
+            setCounter(600);
+        }else if(timepriod==600){
+            setTimepriod(900)
+            setMinute("15");
+            setCounter(900);
+        }else{
+            setTimepriod(300)
+            setMinute("05")
+            setCounter(300);
+        }
+    }
     return (
         <div className="w-full left-side-wh">
             <div className="left-w-el">
@@ -26,7 +81,7 @@ export default function RankedSolo() {
                     <div className="ranked-1">
                         <div className="w-full">
                             <span className="float-left">Tilt MMR</span>
-                            <span className="float-right">87</span>
+                            <span className="float-right">{avarge_tilt}</span>
                         </div>
                         <div className="w-full gap">
                             progress bar
@@ -35,16 +90,16 @@ export default function RankedSolo() {
 
                 </div>
                 <div className="rank-time" >
-                    <span className="w-full flex flex-wrap justify-center items-center font-bold f-24 gap h-44">02:49</span>
+                    <span className="w-full flex flex-wrap justify-center items-center font-bold f-24 gap h-44">{minute}:{second}</span>
                     <div className="w-full flex flex-wrap">
-                        <button className="start-btn gap-r">Start</button>
+                        <button className="start-btn gap-r" onClick={startgame}>Start</button>
                         <button className="w-32 p-8 gap-r8">
                             <Image
                                 src={arrowClockwise}
                                 alt="A picture"
                                 width={64}
                                 height={64}
-                            
+                                onClick={stopTimer}
                             /></button>
                         <button className="w-32 p-8">
                             <Image
@@ -52,7 +107,7 @@ export default function RankedSolo() {
                                 alt="A picture"
                                 width={64}
                                 height={64}
-                            
+                                onClick={setting}
                             /></button>
 
                     </div>

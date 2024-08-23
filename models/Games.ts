@@ -6,6 +6,7 @@ export interface GamesDocument {
  tilt_score:String;
  game_time:String;
  game_performance:String;
+ servey:String;
 }
 
 const GamesSchema = new Schema < GamesDocument > ({
@@ -25,6 +26,10 @@ const GamesSchema = new Schema < GamesDocument > ({
     type: String,
     required: true
   },
+  servey:{
+    type:String,
+    required:true
+  }
 },
 {
   timestamps: true,

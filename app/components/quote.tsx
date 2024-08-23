@@ -7,7 +7,8 @@ import Image from "next/image"
 import rangBtn from "../assets/icons/rang-btn.svg"
 import userAvatar from "../assets/images/userAvatar.png"
 import imagestyle from "../assets/icons/Coach.svg"
-export default function Quote() {
+export default function Quote(props:any) {
+    const {setInitial}=props
     const [checkval, setCheckval] = useState(1);
     // const [value, setValue] = useState(0);
     // const [btnpostion, setBtnpostion] = useState(0)

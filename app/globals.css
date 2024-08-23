@@ -36,8 +36,8 @@ body main {
   color: white;
   display: flex;
   justify-content: center;
-  position: relative;
-  height: 1943.27px
+  /* position: relative;
+  height: 1943.27px */
 }
 
 body main section {
@@ -45,8 +45,7 @@ body main section {
   display: flex;
   flex-wrap: wrap;
   top: 0px;
-  padding: 12px 0 0 0;
-  position: absolute;
+  padding: 12px 0 12px 0
 }
 
 .custome-header {
@@ -154,16 +153,19 @@ body main section {
 .month-img {
   filter: grayscale(100%);
 }
-.month11{
+
+.month11 {
   width: 8px;
   margin-right: 2px;
   background-color: #1B7F48;
 }
-.month12{
+
+.month12 {
   width: 8px;
-    margin-left: 2px;
-    background-color: #FF7B00;
+  margin-left: 2px;
+  background-color: #FF7B00;
 }
+
 .chart-88 {
   height: 88px;
 }
@@ -180,7 +182,6 @@ body main section {
 
 .defeat-card {
   background: #00000033;
-  height: 1508.82px;
   border-style: inherit;
   width: 708px;
   border-radius: 12px;
@@ -204,16 +205,19 @@ body main section {
   border-radius: 12px 0 0 12px;
   border-color: #1C1C1E;
 }
-
+.border-radus-12{
+  border-radius: 12px  0 0 12px!important;
+}
+.border-radus-0{
+  border-radius: 12px 0 0 0!important;
+}
 .defeat-cart-down {
-  height: 1464.82px;
   display: flex;
   align-items: flex-end;
 }
 
 .survey-card {
   width: 649px;
-  height: 1390px;
   padding: 20px 104px;
 }
 
@@ -223,7 +227,11 @@ body main section {
   border-width: 1px;
   border-color: #1C1C1E;
 }
-
+.save{
+  width: 103px;
+  height: 32px;
+  border-radius: 16px;
+}
 .vict-details {
   border-radius: 12px 0 0 12px;
   width: 673px;
@@ -254,10 +262,18 @@ body main section {
 }
 
 .vict-content {
-  width: 321px;
   height: 27.82px;
 }
-
+.vict-img-change{
+  right: 14px !important;
+  width: 4.5rem !important;
+  padding: 0px;
+  margin-top: 0px;
+  background: #2C2C2E;
+}
+.vict-img-change a{
+  padding: 0;
+}
 .vict-img {
   width: 72px;
   height: 27.82px;
@@ -288,7 +304,8 @@ body main section {
 .cart-down {
   padding-top: 44.82px;
 }
-.background-color-white input{
+
+.background-color-white input {
   background-color: white;
 }
 
@@ -352,11 +369,15 @@ input[type="range"]::-moz-range-thumb {
 
 .servey-val {
   position: relative;
-  padding: 0 5px 0 10px;
+  padding: 0 4px 0 4px;
   color: #717176;
   font-size: 14px;
 }
-
+.servey-val span{
+  width: 20px;
+    text-align: center;
+    border-radius: 5px;
+}
 .btn-yes {
   width: 24px;
   height: 24px;
@@ -374,7 +395,25 @@ input[type="range"]::-moz-range-thumb {
   background-repeat: no-repeat;
   background-size: cover;
 }
+.range-btn-active{
+   
+    background-color:  #FF7B00;
+  
+    color: white;
+}
+.emt-btn-deactive {
+  border-color: #3A3A3C;
+  border-width: 1px;
+}
 
+.emt-btn-active {
+  border-color: #FF7B00 !important;
+  border-width: 1px;
+}
+.dropdownmenu{
+  right: -120px!important;
+  width: 9rem!important;
+}
 .servery-val2 {
   height: 48px;
 }
@@ -437,6 +476,8 @@ input[type="range"]::-moz-range-thumb {
 .quote-image {
   background-image: url("./assets/images/userAvatar.png");
   background-size: cover;
+  height: 72px;
+  width: 70px;
 }
 
 .quote p {
@@ -496,6 +537,14 @@ input[type="range"]::-moz-range-thumb {
   width: 28px;
 }
 
+.display-none {
+  display: none;
+}
+
+.display-block {
+  display: block;
+}
+
 .h-88 {
   height: 88px;
 }
@@ -503,7 +552,9 @@ input[type="range"]::-moz-range-thumb {
 .h-44 {
   height: 44px;
 }
-
+.h-32{
+  height: 32px;
+}
 .h-24 {
   height: 24px;
 }
