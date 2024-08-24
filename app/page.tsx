@@ -36,7 +36,6 @@ export default function Home() {
   };
   return (
     <main className="flex flex-col items-center justify-center">
-      {/* <h1 className="text-xl pb-4">Home</h1> */}
       {showSession()}
     </main>
   );

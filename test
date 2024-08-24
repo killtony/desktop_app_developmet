@@ -1,19 +1,98 @@
-className={value==0? "range-btn-active" : "range-btn-deactive"}
-className={value==1? "range-btn-active" : "range-btn-deactive"}
-className={value==2? "range-btn-active" : "range-btn-deactive"}
-className={value==3? "range-btn-active" : "range-btn-deactive"}
-className={value==4? "range-btn-active" : "range-btn-deactive"}
-className={value==5? "range-btn-active" : "range-btn-deactive"}
-className={value==6? "range-btn-active" : "range-btn-deactive"}
-className={value==7? "range-btn-active" : "range-btn-deactive"}
-className={value==8? "range-btn-active" : "range-btn-deactive"}
-className={value==9?  "range-btn-active" : "range-btn-deactive"}
-style={{ marginRight: "40px" }}
-style={{ marginRight: "37px" }}
-style={{ marginRight: "36px" }}
-style={{ marginRight: "37px" }}
-style={{ marginRight: "38px" }}
-style={{ marginRight: "37px" }}
-style={{ marginRight: "39px" }}
-style={{ marginRight: "37px" }}
-style={{ marginRight: "35px" }}
+  <div className="defeat-card w-full flex flex-wrap mb-12">
+                <div className="game-defeat-card w-full flex ">
+                    {/* <div className={"defeat-details " + (serveyshow == 1 ? "border-radus-12" : "border-radus-0")}> */}
+                    <div className={"defeat-details "}>
+                        <div className="info-card flex flex-wrap p-12">
+                            <div className="avatar mr-24">
+                                <Image
+                                    src={userAvatar}
+                                    alt="A picture"
+                                    width={80}
+                                    height={80}
+                                />
+                            </div>
+                            <div className="details">
+                                <div className="vict-content flex items-center mb-8 f-14">
+                                <Image
+                                                src={victoryImg}
+                                                alt="A picture"
+                                                width={72}
+                                                height={27.82}
+                                                className="vict-img mr-12 flex"
+                                            />
+                                    <ul className="grey">
+                                        <li>
+                                            <span className="dot mr-8"></span>
+                                            <Image
+                                                        src={month1}
+                                                        alt="A picture"
+                                                        width={24}
+                                                        height={24}
+                                                    />
+                                        </li>
+                                        <li className="ml-8 light-yellow">
+                                            <span className="dot mr-8 "></span><span>{roles.rolestext}</span>
+                                        </li>
+                                        <li className="ml-8">
+                                            <span className="dot mr-8"></span>2 hours ago
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div className="flex flex-wrap">
+                                    <div className="tilt-result flex flex-wrap mr-24">
+                                        <span className="w-full f-12 grey">Tilt score</span>
+                                        <span className="w-full f-18 orange">{gameresult}/100</span>
+
+                                    </div>
+                                    <div className="tilt-result flex flex-wrap mr-24 ml-24">
+                                        <span className="w-full f-12 grey">Game</span>
+                                        <span className="w-full f-18">21:22</span>
+                                    </div>
+                                    <div className="tilt-result flex flex-wrap">
+                                        <span className="w-full f-12 grey">performance</span>
+                                        <span className="w-full f-18 orange">{resultcast}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div className={"survey-card flex flex-wrap" + (serveyshow == 1 ? ' display-none' : ' ')}>
+                        <h4 className="f-16 mb-16">Post-Game Feeling Survey</h4>
+
+                        <ServeyRang title={titlelist[0]} slug="feeling" servey={servey}  />
+                        <ServeryAnswer slug="emotion" servey={servey}  />
+                        <ServeyRang title={titlelist[1]} slug="blameself" servey={servey}  />
+                        <ServeyRang title={titlelist[2]} slug="blameteam" servey={servey}  />
+                        <ServeyRang title={titlelist[3]} slug="motivate" servey={servey}  />
+                        <ServeyRang title={titlelist[4]} slug="confident" servey={servey}  />
+                        <ServeyRang title={titlelist[5]} slug="gamefell" servey={servey}  />
+                        <ServeryEmotion slug="emotion" servey={servey}  />
+                        <Note slug="note"  servey={servey} />
+                        <ServeyRang title={titlelist[6]} slug="mental" servey={servey}  />
+                        <Quote />
+                    </div>
+                </div>
+
+                <div className="vict-action flex flex-wrap p-8">
+                    <div className="">
+                        <button>
+                            <Image
+                                src={uploadImg}
+                                alt="A picture"
+                                width={35}
+                                height={32}
+                            />
+                        </button>
+                    </div>
+                    <div className="defeat-cart-down">
+                        <button className="" onClick={close}>
+                            <Image
+                                src={serveyshow? cartDown :cartUp}
+                                alt="A picture"
+                                width={35}
+                                height={27.82}
+                            />
+                        </button>
+                    </div>
+                </div>
+            </div>

@@ -26,6 +26,9 @@ export default function RankedSolo() {
                 setMinute(computedMinute);
 
                 setCounter(counter => counter - 1);
+                if (counter==0){
+                    return () => clearInterval(intervalId);
+                }
             }, 1000);
         }
 

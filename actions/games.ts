@@ -24,3 +24,13 @@ export const game_result_r = async (values: any) => {
     console.log(e);
   }
 }
+export const get_servey_history = async (user_id:any) =>{
+  try {
+    await connectDB();
+    const serveydata= await Games.find({ user_id:user_id});
+    return JSON.parse(JSON.stringify(serveydata))
+
+  } catch (e) {
+    console.log(e);
+  }
+}

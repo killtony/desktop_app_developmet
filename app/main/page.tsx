@@ -1,13 +1,9 @@
 "use client";
-import { FormEvent, useState } from "react";
-import { signIn } from "next-auth/react";
-import { useRouter } from "next/navigation";
-import Link from "next/link";
+import { useState } from "react";
 import Gamevict from "../components/gamevict";
 import RankedSolo from "../components/rankedsolo"
 import RecentActivity from "../components/recentactivity";
 import TopRoles from "../components/toproles"
-// import userAvatar from "../../public/userAvatar.png";
 import userAvatar from "../assets/images/userAvatar.png";
 import Image from "next/image"
 
@@ -24,8 +20,7 @@ const initial_servey={
   note:""
 }
 export default function MainPage() {
-  const [serveyshow, setServeyshow] = useState(0);
-  
+  const [serveyshow, setServeyshow] = useState([0, 1, 1, 1]);
   const [initial, setInitial]=useState(0)
   const [servey, setServey] = useState(initial_servey)
   const handleservey =  () => {
@@ -35,7 +30,7 @@ export default function MainPage() {
     }else{
       setInitial(0)
     } 
-    setServeyshow(0)
+    // setServeyshow(0)
   };
 
   return (
