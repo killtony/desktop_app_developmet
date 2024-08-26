@@ -7,6 +7,7 @@ export interface GamesDocument {
  game_time:String;
  game_performance:String;
  servey:String;
+ roles:String;
 }
 
 const GamesSchema = new Schema < GamesDocument > ({
@@ -27,6 +28,10 @@ const GamesSchema = new Schema < GamesDocument > ({
     required: true
   },
   servey:{
+    type:String,
+    required:true
+  },
+  roles:{
     type:String,
     required:true
   }

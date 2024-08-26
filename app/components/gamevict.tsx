@@ -26,15 +26,17 @@ import { victoryImg, defeatImage, uploadImg, cartDown, cartUp } from "../assets/
 export default function UserPlay(props: any) {
     const { servey, setServey, initial, setInitial, serveyshow, setServeyshow } = props;
     const { data: session } = useSession();
-    const [gameresult, setGameresult] = useState(0);
     const [roles, setRoles] = useState({
         image: month1,
         rolestext: "Ranked Solo"
     })
     const [defeatimg, setDefeatimg] = useState(victoryImg)
-    const [resultcast, setResultcast] = useState("Great")
-    const [historydata, setHistorydata]=useState({})
-    const [serveyid, setServeyid]=useState(0)
+    const [historydata, setHistorydata] = useState({})
+    const [serveyresult, setServeyresult] = useState({
+        score: 0,
+        time: "00:00",
+        performance: "Good"
+    })
     const titlelist = [
         "How frustrated do you feel after this game?",
         "How much blame do you place on yourself for this loss?",
@@ -48,31 +50,29 @@ export default function UserPlay(props: any) {
         const r = await get_user({
             email: session?.user?.email,
         });
-        const user_id:any = r._id
-        setHistorydata(await get_servey_history(user_id))
+        const user_id: any = r._id
+        setHistorydata(await get_servey_history(user_id, 3))
     }
 
-    const result = () => {
-
-        setGameresult(Math.min(100, Math.max(0,
+    let gameresult: number = 0;
+    let resultcast: string = "Good";
+    const game_r = async () => {
+        gameresult = Math.min(100, Math.max(0,
             (servey.feeling * 3.5) + (servey.blameteam * 3) + (servey.blameself * 3) - (servey.motivate * 0.8) - (servey.confident * 0.5) - (servey.gamefell * 0.5) + servey.emotion + servey.outcome
-        )))
+        ))
 
         if (gameresult >= 81) {
-            setResultcast("Extremely")
+            resultcast = "Extremely"
         }
         else if (gameresult >= 61 && gameresult <= 81) {
-            setResultcast("Poor")
+            resultcast = "Poor"
         } else if (gameresult <= 61 && gameresult >= 41) {
-            setResultcast("Average")
+            resultcast = "Average"
         } else if (gameresult <= 41 && gameresult >= 21) {
-            setResultcast("Good")
+            resultcast = "Good"
         } else {
-            setResultcast("Outstanding")
+            resultcast = "Outstanding"
         }
-
-    }
-    const game_r = async () => {
         const r = await get_user({
             email: session?.user?.email,
         });
@@ -81,8 +81,16 @@ export default function UserPlay(props: any) {
             tilt_score: String(gameresult),
             game_time: JSON.stringify(servey),
             game_performance: resultcast,
-            servey: JSON.stringify(servey)
+            servey: JSON.stringify(servey),
+            roles: JSON.stringify(roles)
         })
+        setServeyresult({
+            score: gameresult,
+            time: "00:00",
+            performance: resultcast
+        })
+        serveyhistorydata()
+
     }
     const handlechange = (val: any) => {
         switch (val) {
@@ -134,38 +142,34 @@ export default function UserPlay(props: any) {
             console.log(2);
         }
     }
-    const close = (val:any) => {
-        console.log(val);
-        
+    const close = (val: any) => {
+
+        let num: number = 0;
+        for (num = 0; num < 4; num++) {
+            setServeyshow({ ...serveyshow, [num]: 1 })
+            console.log(num);
+        }
         if (serveyshow[val] == 1) {
-            setServeyshow({...serveyshow, [val]:0})
+            setServeyshow({ ...serveyshow, [val]: 0 })
         } else {
-            setServeyshow({...serveyshow, [val]:1})
+           
+            setServeyshow({ ...serveyshow, [val]: 1 })
             window.scrollTo(0, 0)
         }
-       
-        // setServeyid(val)
     }
-    // const close = (val: number) => {
-    //     // if(val==1){
-    //     //     setServeyshow(0)
-    //     // }else{
-    //     setServeyshow(val)
-    //     // }
-    //     // window.scrollTo(0, 0)
-    // }
 
     useEffect(() => {
         setServey(servey)
     }, [initial])
-    useEffect(()=>{
+    useEffect(() => {
         serveyhistorydata()
-    },[])
+    }, [])
+    
     return (
         <div>
             <div className="defeat-card w-full flex flex-wrap mb-12">
                 <div className="game-defeat-card w-full flex ">
-                    <div className={"defeat-details " + (serveyshow == 1 ? "border-radus-12" : "border-radus-0")}>
+                    <div className={"defeat-details " + (serveyshow[0] == 1 ? "border-radus-12" : "border-radus-0")}>
                         <div className="info-card flex flex-wrap p-12">
                             <div className="avatar mr-24">
                                 <Image
@@ -340,22 +344,22 @@ export default function UserPlay(props: any) {
                                 <div className="flex flex-wrap">
                                     <div className="tilt-result flex flex-wrap mr-24">
                                         <span className="w-full f-12 grey">Tilt score</span>
-                                        <span className="w-full f-18 orange">{gameresult}/100</span>
+                                        <span className="w-full f-18 orange">{serveyresult.score}/100</span>
 
                                     </div>
                                     <div className="tilt-result flex flex-wrap mr-24 ml-24">
                                         <span className="w-full f-12 grey">Game</span>
-                                        <span className="w-full f-18">21:22</span>
+                                        <span className="w-full f-18">{serveyresult.time}</span>
                                     </div>
                                     <div className="tilt-result flex flex-wrap">
-                                        <span className="w-full f-12 grey">performance</span>
-                                        <span className="w-full f-18 orange">{resultcast}</span>
+                                        <span className="w-full f-12 grey">Performance</span>
+                                        <span className="w-full f-18 orange">{serveyresult.performance}</span>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div className={"survey-card flex flex-wrap" + (serveyshow[0]==0? ' ':' display-none' )}>
+                    <div className={"survey-card flex flex-wrap" + (serveyshow[0] == 0 ? ' ' : ' display-none')}>
                         <h4 className="f-16 mb-16">Post-Game Feeling Survey</h4>
 
                         <ServeyRang title={titlelist[0]} slug="feeling" servey={servey} setServey={setServey} flag={1} initial={initial} />
@@ -369,7 +373,6 @@ export default function UserPlay(props: any) {
                         <Note slug="note" initial={initial} servey={servey} setServey={setServey} />
                         <ServeyRang title={titlelist[6]} slug="mental" servey={servey} setServey={setServey} flag={1} initial={initial} />
                         <div className="w-full h-32 mb-12 mt-12">
-                            <button className="" onClick={result}>Result</button>
                             <button className="save  back-orange" onClick={game_r}>Save</button>
 
                         </div>
@@ -390,7 +393,7 @@ export default function UserPlay(props: any) {
                         </button>
                     </div>
                     <div className="defeat-cart-down">
-                        <button className="" onClick={()=>close(0)}>
+                        <button className="" onClick={() => close(0)}>
                             <Image
                                 src={serveyshow[0] ? cartDown : cartUp}
                                 alt="A picture"
@@ -401,7 +404,7 @@ export default function UserPlay(props: any) {
                     </div>
                 </div>
             </div>
-            { Object.entries(historydata).map(([index, value]) => <Serveyhistory historydata={value} key={index} serveyid={index} setServeyshow={setServeyshow} serveyshow={serveyshow} close={close}/>) }                              
+            {Object.entries(historydata).map(([index, value]) => <Serveyhistory historydata={value} key={index} serveyid={index} setServeyshow={setServeyshow} serveyshow={serveyshow} close={close} />)}
         </div>
     );
 };

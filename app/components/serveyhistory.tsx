@@ -1,13 +1,8 @@
 "use client";
-import { useState, useEffect } from "react";
-import { useSession } from "next-auth/react";
-import { Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react'
-import { ChevronDownIcon } from '@heroicons/react/20/solid'
 import Image from "next/image"
 import userAvatar from "../assets/images/userAvatar.png";
 import victoryImg from "../assets/icons/Group.svg";
-import defeatImage from "../assets/icons/defeat.svg"
-import midlaner from "../assets/images/midlaner.png"
+
 import uploadImg from "../assets/icons/upload-simple.svg"
 import cartDown from "../assets/icons/caret-down.svg"
 import cartUp from "../assets/icons/caret-up.svg"
@@ -15,10 +10,7 @@ import ServeyRang from "./serveyrang"
 import ServeryAnswer from "./serveyanswer";
 import ServeryEmotion from "./serveyemotion"
 import Note from "./note"
-import Comments from "./comments"
 import Quote from "./quote"
-import { get_user } from "@/actions/user";
-import { game_result_r } from '@/actions/games'
 
 import month1 from "../assets/images/month1.png"
 import month2 from "../assets/images/month2.png"
@@ -31,6 +23,7 @@ export default function Serveyhistory(props: any) {
         return
     }
     const serveydata = JSON.parse(historydata.servey)
+    const rolesdata = JSON.parse(historydata.roles)
     const titlelist = [
         "How frustrated do you feel after this game?",
         "How much blame do you place on yourself for this loss?",
@@ -44,10 +37,10 @@ export default function Serveyhistory(props: any) {
 
     return (
         <div>
-            <div className="defeat-card w-full flex flex-wrap mb-12">
+            <div className="defeat-card-history w-full flex flex-wrap mb-12">
                 <div className="game-defeat-card w-full flex ">
-                    <div className={"defeat-details " + (serveyshow[Number(serveyid)+1] == serveyid ? "border-radus-12" : "border-radus-0")}>
-                        {/* <div className={"defeat-details "}> */}
+                    <div className={"defeat-details " + (serveyshow[Number(serveyid)+1] == 1 ? "border-radus-12" : "border-radus-0")}>
+                        {/* <div className={"defeat-details"}> */}
                         <div className="info-card flex flex-wrap p-12">
                             <div className="avatar mr-24">
                                 <Image
@@ -77,7 +70,7 @@ export default function Serveyhistory(props: any) {
                                             />
                                         </li>
                                         <li className="ml-8 light-yellow">
-                                            <span className="dot mr-8 "></span><span>test</span>
+                                            <span className="dot mr-8 "></span><span>{rolesdata.rolestext}</span>
                                         </li>
                                         <li className="ml-8">
                                             <span className="dot mr-8"></span>2 hours ago
@@ -95,7 +88,7 @@ export default function Serveyhistory(props: any) {
                                         <span className="w-full f-18">21:22</span>
                                     </div>
                                     <div className="tilt-result flex flex-wrap">
-                                        <span className="w-full f-12 grey">performance</span>
+                                        <span className="w-full f-12 grey">Performance</span>
                                         <span className="w-full f-18 orange">{historydata.game_performance}</span>
                                     </div>
                                 </div>

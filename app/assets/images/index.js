@@ -5,6 +5,8 @@ import month2 from "./month2.png"
 import month3 from "./month3.png"
 import month4 from "./month4.png"
 import month5 from "./month5.png"
+import progressbar from "./progressbar.png"
+import logo from "./logo.png"
 
 export {
     userAvatar,
@@ -14,4 +16,6 @@ export {
     month3,
     month4,
     month5,
+    progressbar,
+    logo
   };

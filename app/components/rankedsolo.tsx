@@ -1,15 +1,21 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useState, useEffect } from "react";
+import { useSession } from "next-auth/react";
 import arrowClockwise from "../assets/icons/arrow-clockwise.svg";
 import gear from "../assets/icons/gear.svg";
-import userAvatar from "../assets/images/logo.png";
+import { logo, progressbar } from "../assets/images/";
 import Image from "next/image"
+import { get_user } from "@/actions/user";
+import { get_average_score } from '@/actions/games'
 export default function RankedSolo() {
+    const { data: session } = useSession();
     const [second, setSecond] = useState('00');
     const [minute, setMinute] = useState('05');
+    const [averagescore, setAveragescore] = useState(0)
     const [isActive, setIsActive] = useState(false);
     const [counter, setCounter] = useState(300);
-    const [timepriod, setTimepriod]=useState(300)
+    const [timepriod, setTimepriod] = useState(300)
+    const [progressbarwidth, setProgressbarwidth]=useState(0)
     const avarge_tilt = 10
     useEffect(() => {
         let intervalId: NodeJS.Timeout;;
@@ -26,7 +32,8 @@ export default function RankedSolo() {
                 setMinute(computedMinute);
 
                 setCounter(counter => counter - 1);
-                if (counter==0){
+                setProgressbarwidth(progressbarwidth+210.5/timepriod)
+                if (counter == 0) {
                     return () => clearInterval(intervalId);
                 }
             }, 1000);
@@ -34,40 +41,54 @@ export default function RankedSolo() {
 
         return () => clearInterval(intervalId);
     }, [isActive, counter]);
-    const startgame =()=>{
+    const startgame = () => {
         setIsActive(!isActive)
     }
     const stopTimer = () => {
         setIsActive(false);
         setSecond('00');
-        if (timepriod==300){
+        if (timepriod == 300) {
             setCounter(300);
             setMinute("05")
-        }else if(timepriod==600){
+        } else if (timepriod == 600) {
             setCounter(600);
             setMinute("10");
-        }else{
+        } else {
             setCounter(900);
             setMinute("15");
         }
+        setProgressbarwidth(0)
     };
-    const setting =()=>{
+    const setting = () => {
         setIsActive(false);
         setSecond('00');
-        if (timepriod<600){
+        if (timepriod < 600) {
             setTimepriod(600)
             setMinute("10");
             setCounter(600);
-        }else if(timepriod==600){
+        } else if (timepriod == 600) {
             setTimepriod(900)
             setMinute("15");
             setCounter(900);
-        }else{
+        } else {
             setTimepriod(300)
             setMinute("05")
             setCounter(300);
         }
+        setProgressbarwidth(0)
     }
+    const serveyaveragescore = async () => {
+        const r = await get_user({
+            email: session?.user?.email,
+        });
+        const user_id: any = r._id
+        setAveragescore(await get_average_score(user_id, 6))
+
+    }
+    useEffect(() => {
+        serveyaveragescore()
+    }, [])
+    
     return (
         <div className="w-full left-side-wh">
             <div className="left-w-el">
@@ -75,19 +96,26 @@ export default function RankedSolo() {
                 <div className="w-full flex items-center f-14 ">
 
                     <Image
-                        src={userAvatar}
+                        src={logo}
                         alt="A picture"
                         width={64}
                         height={64}
                         className="gap-r"
                     />
                     <div className="ranked-1">
-                        <div className="w-full">
+                        <div className="w-full mb-12">
                             <span className="float-left">Tilt MMR</span>
-                            <span className="float-right">{avarge_tilt}</span>
+                            <span className="float-right">{averagescore}</span>
                         </div>
-                        <div className="w-full gap">
-                            progress bar
+                        <div className="w-full">
+                            <Image
+                                src={progressbar}
+                                alt="A picture"
+                                height={64}
+                                className="gap-r w-full"
+
+                            />
+                            <div className="progressbar" style={{width : progressbarwidth}}> </div>
                         </div>
                     </div>
 

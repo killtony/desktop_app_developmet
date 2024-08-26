@@ -188,7 +188,12 @@ body main section {
   border: 1px solid;
   border-color: #F7E436;
 }
-
+.defeat-card-history{
+  background: #00000033;
+  border-style: inherit;
+  width: 708px;
+  border-radius: 12px;
+}
 .defeat-details {
   border-radius: 12px 0 0 0;
   border-bottom-width: 1px;
@@ -197,7 +202,16 @@ body main section {
   border-color: #1C1C1E;
   background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), linear-gradient(90.97deg, rgba(0, 214, 107, 0.2) -2.49%, rgba(21, 21, 23, 0.2) 79.1%);
 }
-
+.progressbar{
+  /* width: 210px; */
+  background: #333333;
+  height: 9px;
+  position: relative;
+  top: -12px;
+  border-radius: 13px;
+  margin-left: 5px;
+  float: right;
+}
 .game-defeat-card {
   display: block;
   width: 671px;
