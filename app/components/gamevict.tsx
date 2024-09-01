@@ -349,7 +349,8 @@ export default function UserPlay(props: any) {
                                     </div>
                                     <div className="tilt-result flex flex-wrap mr-24 ml-24">
                                         <span className="w-full f-12 grey">Game</span>
-                                        <span className="w-full f-18">{serveyresult.time}</span>
+                                        {/* <span className="w-full f-18">{serveyresult.time}</span> */}
+                                        <span className="w-full f-18">{"30:00"}</span>
                                     </div>
                                     <div className="tilt-result flex flex-wrap">
                                         <span className="w-full f-12 grey">Performance</span>

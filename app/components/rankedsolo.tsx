@@ -33,7 +33,10 @@ export default function RankedSolo() {
 
                 setCounter(counter => counter - 1);
                 setProgressbarwidth(progressbarwidth+210.5/timepriod)
-                if (counter == 0) {
+                console.log(counter);
+                
+                if (counter == 0 || counter < 0) {
+                    setIsActive(false)
                     return () => clearInterval(intervalId);
                 }
             }, 1000);
@@ -42,7 +45,7 @@ export default function RankedSolo() {
         return () => clearInterval(intervalId);
     }, [isActive, counter]);
     const startgame = () => {
-        setIsActive(!isActive)
+        setIsActive(true)
     }
     const stopTimer = () => {
         setIsActive(false);
@@ -81,7 +84,7 @@ export default function RankedSolo() {
         const r = await get_user({
             email: session?.user?.email,
         });
-        const user_id: any = r._id
+        const user_id = r._id
         setAveragescore(await get_average_score(user_id, 6))
 
     }
