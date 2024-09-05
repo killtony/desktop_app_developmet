@@ -20,7 +20,7 @@ import month5 from "../assets/images/month5.png"
 export default function Serveyhistory(props: any) {
     const { historydata, serveyid, serveyshow, close } = props;
     if (historydata == null) {
-        return
+        return null;
     }
     const serveydata = JSON.parse(historydata.servey)
     const rolesdata = JSON.parse(historydata.roles)
